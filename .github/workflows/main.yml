@@ -27,7 +27,7 @@ jobs:
       with:
         gcloud_service_key: ${{ secrets.GCP_SA_KEY_ENCODED }}
         registry: gcr.io
-        project_id: list-app
+        project_id: list-app-343503
         image_name: list-app
     - id: 'auth'
       uses: 'google-github-actions/auth@v0'
