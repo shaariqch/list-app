@@ -21,13 +21,20 @@ jobs:
   job1:
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v2
+    - uses: google-github-actions/setup-gcloud@master
+    - uses: RafikFarhad/push-to-gcr-github-action@v4
+      with:
+        gcloud_service_key: ${{ secrets.GCP_SA_KEY }}
+        registry: gcr.io
+        project_id: list-app
+        image_name: list-app
     - id: 'auth'
       uses: 'google-github-actions/auth@v0'
       with:
         credentials_json: '${{ secrets.GCP_SA_KEY }}'
-
     - name: 'Deploy to Cloud Run'
       uses: 'google-github-actions/deploy-cloudrun@v0'
       with:
-        image: 'gcr.io/cloudrun/hello'
+        image: 'gcr.io/list-app/list-app'
         service: 'hello-cloud-run'
