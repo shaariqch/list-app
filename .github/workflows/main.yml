@@ -25,7 +25,7 @@ jobs:
     - uses: google-github-actions/setup-gcloud@master
     - uses: RafikFarhad/push-to-gcr-github-action@v4
       with:
-        gcloud_service_key: ${{ secrets.GCP_SA_KEY }}
+        gcloud_service_key: ${{ secrets.GCP_SA_KEY_ENCODED }}
         registry: gcr.io
         project_id: list-app
         image_name: list-app
