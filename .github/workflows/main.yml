@@ -36,5 +36,5 @@ jobs:
     - name: 'Deploy to Cloud Run'
       uses: 'google-github-actions/deploy-cloudrun@v0'
       with:
-        image: 'gcr.io/list-app/list-app'
+        image: 'gcr.io/list-app-343503/list-app'
         service: 'hello-cloud-run'
